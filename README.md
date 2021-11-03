@@ -16,5 +16,11 @@ the skeleton of the app.
 
 (in the choices given, I picked 'Default (Vue 3)')
 
+Then you launch the application in development mode:
+
+    $ npm run serve
+
+aaaand it should be available on http://localhost:8080, and should
+update as you play with the source code. Enjoy!
 
 
