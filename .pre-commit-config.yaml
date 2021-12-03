@@ -1,0 +1,34 @@
+# See https://pre-commit.com for more information
+# See https://pre-commit.com/hooks.html for more hooks
+
+# pre-commit install -t push -t commit-msg -t pre-commit
+
+# TODO We're using the latest prettier here. We should
+# upgrade the prettier in the sub-projects to match
+
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v3.2.0
+    hooks:
+      - id: trailing-whitespace
+      - id: end-of-file-fixer
+      - id: check-yaml
+        stages: [commit]
+      - id: check-added-large-files
+        stages: [commit]
+  - repo: https://github.com/pre-commit/mirrors-prettier
+    rev: "v2.4.1"
+    hooks:
+      - id: prettier
+        stages: [commit]
+        name: Prettier
+        additional_dependencies:
+          - prettier@2.4.1
+  - repo: local
+    hooks:
+      - id: STOP ME
+        name: Don't do it, oh god, don't
+        language: pygrep
+        entry: STOP
+        args: [--multiline]
+        stages: [commit-msg]
